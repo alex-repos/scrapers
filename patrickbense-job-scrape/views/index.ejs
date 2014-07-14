@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>School Scrape</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+    	<nav class="navbar navbar-default" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Job Scraper</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="/">Home</a></li>
+		        <li><a href="/About">About</a></li>
+		      </ul>
+		      <button type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="page-header">
+			<h1><%= jobs.length %> jobs found!</h1>
+			<p class="bg-warning" style="padding: 10px;">
+				This application currently scans only school districts using talentedk12 job sites. More will be added later.
+			</p>
+		</div>
+		<p>
+			<div class="btn-group">
+			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" disabled="disabled">
+			    District <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+			    <li><a href="#">View All <span class="badge pull-right"><%= jobs.length %></span></a></li>
+			    <li class="divider"></li>
+			    <li><a href="#">Centennial</a></li>
+			    <li><a href="#">Central Bucks</a></li>
+			    <li><a href="#">Hatboro-Horsham</a></li>
+			    <li><a href="#">Neshaminy</a></li>
+			    <li><a href="#">New Hope-Solebury</a></li>
+			    <li><a href="#">Wissahickon</a></li>
+			  </ul>
+			</div>
+		</p>
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<!-- <th></th> -->
+				    <th>Title</th>
+				    <th>Type</th>
+				    <th>Location</th>
+				    <th>District</th>
+				    <th><span class="caret"></span> Date Posted</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for(var i=0; i<jobs.length; i++) {%>
+					<tr>
+						<!-- <td>
+							<div class="checkbox">
+							    <label>
+							      <input type="checkbox">
+							    </label>
+						    </div>
+						</td> -->
+						<td>
+							<a href="<%= jobs[i]._id.link %>" class="job-link" data-toggle="tooltip" data-placement="right" title="<%= jobs[i]._id.job %>">
+								<%= jobs[i]._id.job.substring(0, 30) %>
+								<% if(jobs[i]._id.job.length > 30) { %> 
+									...
+								<% } %>
+							</a>
+						</td>
+						<td><%= jobs[i].type %></td>
+						<td><%= jobs[i].location %></td>
+						<td><%= jobs[i].district %></td>
+						<td><%= jobs[i].date.getMonth() %>/<%= jobs[i].date.getDate() %>/<%= jobs[i].date.getFullYear() %> <!-- <span class="label label-success pull-right">New!</span> -->
+						</td>
+					</tr>
+				<% } %>
+			</tbody>
+			</table>
+		</div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function () {
+    		$('a.job-link').tooltip();
+	    });
+    </script>
+  </body>
+</html>

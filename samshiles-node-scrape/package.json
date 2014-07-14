@@ -1,0 +1,22 @@
+{
+  "name": "jobscrapper",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Sam Shiles",
+  "dependencies": {
+     "request": "2.30.x",
+     "cheerio": "0.12.x",
+     "node-fakeweb": "0.0.x"
+  },
+  "devDependencies": {
+    "mocha": "1.16.x"
+  },
+  "license": "BSD-2-Clause"
+}

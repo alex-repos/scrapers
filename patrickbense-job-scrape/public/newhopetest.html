@@ -1,0 +1,538 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>
+        New Hope PA
+        -
+        TalentEd Recruit & Hire 
+    </title>
+    <!-- NetchemiaFoundations.oConfigurationSettings.Item(NetchemiaFoundations.oDNSClientIDMatchings.Item(Request.Url.Host), "ENABLE_TRAININGLINK") -->
+    <meta name="Description" content="Apply online for K-12 Jobs in New Hope PA" />
+    <meta name="Keywords" content="Apply online for K-12 Jobs in New Hope PA" />
+    <link rel="SHORTCUT ICON" href="/hire/favicon.ico">
+    <link rel="icon" href="/hire/favicon.ico " sizes="48x48" />
+    <link rel="stylesheet" type="text/css" href="publicstyles.css" />
+    <link href="Styles/nfDialog.css" rel="stylesheet" type="text/css" />
+    <link rel="Stylesheet" type="text/css" href="Objects/Dynalist/Dynalist.css" />
+    
+<style>
+h5 {color:black;}
+.mainCustom, .mainCustom table tr td,  a.mainCustom:link,  a.mainCustom:visited,  a.mainCustom:hover {background-color:#46463F;color:#FFFFFF;}
+.mainCustom h1 {color:#FFFFFF;}
+.mainCustom h5 {border-color:#FFFFFF color:#FFFFFF;}
+.subCustom, h2 {background-color:#646459;color:#FFFFFF;}
+h5.subCustom h5 {border-color:#FFFFFFcolor:#FFFFFF;}
+.applicantHeaderTable {border-color:#646459;}
+.footer {border-color:#040400;}
+.accentCustom, #NavigateDynaList, .accentCustom a:link, .accentCustom a:visited, .altCustom a:hover, .regCustom a:hover {background-color:#040400;color:#FFFFFF;}
+#tabs, h5  {border-color:#040400;}
+.regCustom {background-color:#FFFFFF;color:#000000;}
+.altCustom {background-color:#5E5E53;color:#FFFFFF;}
+.altCustom h5 {color:#FFFFFF;}
+.altCustom a {color:#FFFFFF;}
+</style>
+
+    <style type="text/css">
+        #oCandidateAlert {
+            background-color: #E8EFF4;
+            margin: 25px 0;
+            border-width: 0 0 5px 0;
+            border-style: solid;
+            border-color: #DE3B04;
+            padding: 0 0 10px 0;
+        }
+        #oCandidateAlert p {
+            margin-left: 10px;
+        }
+        .DynaListGeneric span table tr td {
+            padding: 10px 4px;
+        }
+        
+        .loginArea {
+            font-size: 10px;
+            text-align: right;
+            margin: 0;
+            border: 0;
+            float: right;
+            margin-right: 15px;
+            float: left;
+        }
+        .loginArea span {
+            display: inline;
+            clear: none;
+        }
+        .loginArea #oSmallLogin_txtLoginID, .loginArea #oSmallLogin_txtPassword {
+            height: 12px;
+            width: 130px;
+            font-size: 11px;
+        }
+        #loginPasswordForget {
+            font-size: 10px;
+            clear: both;
+            font-size: 11px;
+        }
+        #badIE {
+            font-weight: bold;
+            padding: 5px;
+            background-color: #FDD;
+            border: 1px solid #F33;
+            margin: 10px;
+        }
+        #badIE p {
+            margin: 5px;
+        }
+    </style>
+    <script type="text/javascript" src="/hire/Functions/jQuery/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="/hire/Functions/jQuery/json2.js"></script>
+    <script type="text/javascript" src="/hire/Functions/jQuery/jqModal/jqModal.js"></script>
+    <script type="text/javascript" src="/hire/functions/javascript/global.js"></script>
+    <script type="text/javascript" src="/hire/functions/javascript/buttons.js"></script>
+    <script type="text/javascript" src="/hire/functions/javascript/uiCandy.js"></script>
+    <script type="text/javascript" src="/hire/Objects/DynaList/DynaList.js"></script>
+    <script type="text/javascript">
+
+        //Functions related to the Modal window
+
+        $().ready(function () {
+            $('#divSelectJobAlert').jqm();
+
+
+            $('#oSmallLogin_txtPassword').keypress(function (e) {
+                return SubmitLogin(e);
+            });
+            $('#oSmallLogin_txtLoginID').keypress(function (e) {
+                return SubmitLogin(e);
+            });
+
+        });
+
+        function SubmitLogin(e) {
+            if (e.keyCode == 13) {
+                $('#oSmallLogin_cmdSubmit').trigger('click');
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
+    </script>
+    <script language="javascript">
+
+        function SortGrid(sSortBy) {
+            document.getElementById("txtHiddenSortBy").value = sSortBy;
+            document.getElementById("frmMainPage").submit();
+        }
+
+        function SelectGridType(sGridType) {
+            document.getElementById("txtHiddenJobType").value = sGridType;
+            document.getElementById("frmMainPage").submit();
+        }
+    </script>
+    <link href="/hire/Functions/jQuery/jqModal/jqModal.css" rel="stylesheet" type="text/css" />
+    <style>
+        .searchLabel {
+            line-height: 13px;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+                .searchLabel {line-height: 9px;}
+        }
+
+        .jqmWindow {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -200px;
+            width: 400px;
+            background-color: #EEE;
+            color: #333;
+            border: 1px solid black;
+            padding: 12px;
+        }
+        #indexSubLinks span a:link, #indexSubLinks span a:visited {
+            display: block;
+            clear: both;
+            line-height: 150%;
+        }
+    </style>
+    <script language="javascript">
+
+        function closeModal() {
+            $("#divAskingMessage").show();
+            $("#divSuccessMessage").hide();
+            $('#divSelectJobAlert').jqmHide();
+
+            return false;
+        }
+        $(document).ready(function () {
+
+            $('#exModal1').click(function () {
+
+                closeModal();
+            });
+            $('#exModal2').click(function () {
+
+                closeModal();
+            });
+
+
+            $("#cmdAlertSignup").click(function () {
+
+                var ApplicantAlertEmail = $("#txtAlertEmailAddress").val();
+
+                var errMsg = "";
+
+                if (ApplicantAlertEmail == "") {
+                    errMsg = "Your email is required\n";
+                }
+                else {
+                    if (!isValidEmailAddress(ApplicantAlertEmail)) {
+                        errMsg = "Your email is not a valid one\n";
+                    }
+                }
+
+
+
+                if (errMsg != "") {
+                    alert(errMsg);
+                } else {
+                    var oFuncParams = { "sApplicantEmail": ApplicantAlertEmail,
+
+                        "sHost": $("#txtHiddenHost").val()
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: "Index.aspx/SaveAlertEmail",
+                        data: JSON.stringify(oFuncParams),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (msg) {
+                            if (msg.d["Success"] == "true") {
+
+                                $("#divAskingMessage").hide();
+                                $("#divSuccessMessage").show();
+
+                                //alert('You will now receive weekly emails from this district with a list of jobs');
+
+
+                            }
+
+                        }
+                    });
+                }
+            });
+
+
+        });
+    </script>
+<script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script></head>
+<body>
+    <input name="txtHiddenApplicantProfileID" type="hidden" id="txtHiddenApplicantProfileID" />
+    <input name="txtHiddenSortBy" type="hidden" id="txtHiddenSortBy" />
+    <input name="txtHiddenJobType" type="hidden" id="txtHiddenJobType" />
+    <input name="txtEnterPressed" type="hidden" id="txtEnterPressed" />
+    <div class="wrapper">
+        <div class="content" style="margin-top: 0;">
+            <form name="frmMainPage" method="post" action="index.aspx" id="frmMainPage">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUIODk0OTc1MjQPFgIeE1ZhbGlkYXRlUmVxdWVzdE1vZGUCARYCAgQPZBYUAgkPZBYIAgIPZBYQZg8PFgIeBFRleHQFMjxiPldlbGNvbWUgPC9iPiAgKDxhIGhyZWY9ImxvZ291dC5hc3B4Ij5Ob3QgPC9hPj8pZGQCAQ8WAh4JaW5uZXJodG1sBRBBY2NvdW50IFNldHRpbmdzZAICDxYCHwIFCFNpZ24gT3V0ZAIDD2QWBmYPFgIfAgUIVXNlcm5hbWVkAgQPFgIfAgUIUGFzc3dvcmRkAggPDxYCHwEFB1NpZ24gSW5kZAIEDw8WAh4HVmlzaWJsZWhkZAIFDxYCHwNoZAIGDw8WAh8BBYABPGEgaHJlZj0iaW5kZXguYXNweCI+UmVjcnVpdCAmIEhpcmUgSG9tZTwvYT4gIHwgIDxhIGhyZWY9ImludGVybmFsTG9naW4uYXNweCI+SW50ZXJuYWw8L2E+ICB8ICA8YSBocmVmPSJsb2dpbi5hc3B4Ij5BZG1pbjwvYT4gIHxkZAIHDxYCHwIFBEhlbHBkAgQPFgIfA2hkAgYPFgIfA2gWAmYPZBYCAgEPDxYCHwFkZGQCCA8WAh8DZxYCZg9kFgICAQ8WAh4Dc3JjBYwBaHR0cHM6Ly9uZXdob3BlLmNsb3VkLnRhbGVudGVkazEyLmNvbS9oaXJlL0h0dHBIYW5kbGVyL0ltYWdlSGFuZGxlci5hc2h4P0ZpbGVVcGxvYWRUeXBlPUN1c3RvbUltYWdlJkNvbmZpZz1GSUxFX1NBVkVDVVNUT01JWkUmUHJpbWFyeUtleUlEPTFkAgsPFgIfA2hkAg8PZBYSAgEPFgIeBXN0eWxlBQ1kaXNwbGF5Om5vbmU7ZAIDDxYCHgVjbGFzcwUTYWN0aXZlIGFjY2VudEN1c3RvbRYCAgEPFgIfBgUWdGFiSW5zaWRlIGFjY2VudEN1c3RvbWQCBQ8WBB8GBQlhbHRDdXN0b20fBQUNZGlzcGxheTpub25lOxYCAgEPFgIfBgUTdGFiSW5zaWRlIGFsdEN1c3RvbWQCBw8WBB8GBQlhbHRDdXN0b20fBQUNZGlzcGxheTpub25lOxYCAgEPFgIfBgUTdGFiSW5zaWRlIGFsdEN1c3RvbWQCCQ8WBB8GBQlhbHRDdXN0b20fBQUNZGlzcGxheTpub25lOxYCAgEPFgIfBgUTdGFiSW5zaWRlIGFsdEN1c3RvbWQCCw8WBB8GBQlhbHRDdXN0b20fBQUNZGlzcGxheTpub25lOxYCAgEPFgIfBgUTdGFiSW5zaWRlIGFsdEN1c3RvbWQCDQ8WBB8GBQlhbHRDdXN0b20fBQUNZGlzcGxheTpub25lOxYCAgEPFgIfBgUTdGFiSW5zaWRlIGFsdEN1c3RvbWQCDw8WAh8GBQlhbHRDdXN0b20WAgIBDxYEHwIFBEhlbHAfBgUTdGFiSW5zaWRlIGFsdEN1c3RvbWQCEQ8WAh8FBQ1kaXNwbGF5Om5vbmU7FgICAQ8WAh8CBQhTaWduIE91dGQCFw8WAh8DaGQCGQ8WAh8CBSBJIGZvcmdvdCBteSBVc2VybmFtZSBvciBQYXNzd29yZGQCGw9kFgQCAQ8WAh8DaGQCAw8WAh8CBQdXZWxjb21lZAIdDw8WAh8BBeACVG8gYmVnaW4gYSBuZXcgYXBwbGljYXRpb24sIGNob29zZSBhIGpvYiBmcm9tIHRoZSBhdmFpbGFibGUgbGlzdGluZ3MgYmVsb3cuIEFmdGVyIHlvdXIgaW5mb3JtYXRpb24gaXMgY29tcGxldGUsIHlvdSB3aWxsIHJlY2VpdmUgYSBjb25maXJtYXRpb24gbnVtYmVyLCBhbmQgeW91ciBpbmZvcm1hdGlvbiB3aWxsIGJlIHNhdmVkIGFsbG93aW5nIHlvdSB0byByZXR1cm4gYXQgYW55IHRpbWUgdG8gc3VibWl0IGFkZGl0aW9uYWwgYXBwbGljYXRpb25zLjxici8+PGJyLz5QbGVhc2UgYmUgc3VyZSBhbmQgcmVtZW1iZXIgeW91ciB1c2VybmFtZSBhbmQgcGFzc3dvcmQgZm9yIHVzZSBvbiBmdXR1cmUgYXBwbGljYXRpb25zLmRkAiEPFgIfAgUGU2VhcmNoZAIjDxYCHgdvbmtleXVwBTtTZWFyY2godGhpcywnU2VhcmNoJywnSW5kZXguYXNweCcsJ0pvYkxpc3QnLDApO3JldHVybiB0cnVlO2QCKw9kFgJmDxYEHwIFBEhlbHAeBGhyZWYFEi9oaXJlL3ZpZXdGQVEuYXNweGRk" />
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['frmMainPage'];
+if (!theForm) {
+    theForm = document.frmMainPage;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAA5J4w+Mq4+kyCcYocNWVtb+0JtYmHTrMnpvPf42TGX6s8xzC9nDkp/Tng2EbH0STDT7sPuPdxAVrzpa07OKO2xRLIODy15gjkjoAtBg0UaZFNf0oOhEdhFCKJQBZQHA6dyoWpVFtYF557YmmBy4m4JjszSoRRlEf0O6xFhcT6naJaszwJuXXxkAxgj+mVEOZOMT3D7i/gjHv/Bym/Y00iXAJl6OgK/Yn/8wC1vjpdV/dpmXJRSLJO7XxM9hCB2Uns/o1ohJ8ZxaLDomRJ0WdBC3kgK7CJSXt1Hb7M8vOlHGGQ==" />
+            <div id="divSelectJobAlert" class="jqmWindow">
+                <div id="divAskingMessage" style="text-align: left;">
+                    <fieldset style="margin: 0px; text-align: left;">
+                        <a href="#" id="exModal1">Close</a>
+                        <hr />
+                        <h3>
+                            Job Alerts</h3>
+                        Enter your email and be notified when new jobs are posted.<br />
+                        <input name="txtAlertEmailAddress" type="text" id="txtAlertEmailAddress" style="width: 200px" />
+                        <input name="cmdAlertSignup" type="button" id="cmdAlertSignup" value="Sign Up" />
+                        <input name="txtHiddenHost" type="hidden" id="txtHiddenHost" value="newhope.cloud.talentedk12.com" />
+                        <p style="text-align: center;">
+                            <a style="font-size: 80%; color: #333;" href="RemoveEmailAlert.aspx">Remove me from the list</a>
+                        </p>
+                    </fieldset>
+                </div>
+                <div id="divSuccessMessage" style="text-align: left; display: none;">
+                    <fieldset style="margin: 0px; text-align: left;">
+                        <a href="#" id="exModal2">Close</a>
+                        <hr />
+                        You will now receive weekly emails from this district with a list of jobs.<br />
+                        <p>
+                            <a href="RemoveEmailAlert.aspx">Remove me from the list</a>
+                        </p>
+                    </fieldset>
+                </div>
+            </div>
+            
+            
+<style>
+    .loginText
+    {
+        font-size: 8pt;
+    }
+    select.selectLanguage
+    {
+        font-size: 8pt;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.selectLanguage').val(readCookie('Language'));
+        $('.selectLanguage').change(function () {
+            createCookie('Language', $(this).val());
+            nfMessageBox({ ShowValue: 'Loading ...', bDisableButton: true });
+            window.location.href = window.location.href;
+        });
+    });
+    
+</script>
+<div id="applicantHeader_divLogin" class="fullPanel altCustom" style="height: 50px;
+    margin-top: 0px; text-align: right;">
+    <div style="float: left; margin: 5px; padding: 10px;">
+        <span id="applicantHeader_oSmallLogin_loginUsernameText" class="loginText">Username</span>
+<span id="loginUsernameInput">
+    <input name="applicantHeader:oSmallLogin:txtLoginID" type="text" id="applicantHeader_oSmallLogin_txtLoginID" size="20" autocomplete="off" /></span>
+<span id="applicantHeader_oSmallLogin_loginPasswordText" class="loginText">Password</span>
+<span id="loginPasswordInput">
+    <input name="applicantHeader:oSmallLogin:txtPassword" type="password" id="applicantHeader_oSmallLogin_txtPassword" size="20" /></span>
+<input type="submit" name="applicantHeader:oSmallLogin:cmdSubmit" value="Sign In" id="applicantHeader_oSmallLogin_cmdSubmit" />
+
+        <span style="clear: both; display: block;">
+            </span> <span style="clear: both;
+                display: block; text-align: right; margin-right: 65px;"></span>
+        
+    </div>
+    <span class="panelContent">
+        <span id="applicantHeader_lblDistrictLinks"><a href="index.aspx">Recruit & Hire Home</a>  |  <a href="internalLogin.aspx">Internal</a>  |  <a href="login.aspx">Admin</a>  |</span>
+        <a href="ViewFAQ.aspx" id="applicantHeader_aHelp" class="additionalDistrictLink">Help</a></span>
+</div>
+<div class="districtLogo" style="width: 900px; height: auto">
+    <table style="border-collapse: collapse; border: 0;">
+        
+        
+        <tr id="applicantHeader_logo_DataBase">
+	<td colspan="3" align="left">
+                <img src="https://newhope.cloud.talentedk12.com/hire/HttpHandler/ImageHandler.ashx?FileUploadType=CustomImage&Config=FILE_SAVECUSTOMIZE&PrimaryKeyID=1" id="applicantHeader_Image1" alt="custom Logo" />
+            </td>
+</tr>
+
+    </table>
+</div>
+
+            
+            <div id="oCandidateAlert" style="display: none;">
+                <h1 style="background-color: #DE3B04;">
+                    Alert</h1>
+                <div id="oCandidateAlert_JobOpen">
+                    <p>
+                        You have an <strong>incomplete application for
+                            <span id="lblJobName1"></span>
+                            that has not been submitted.</strong> Would you like to continue working on this application?<br />
+                        <a id="cmdContinueApp" href="javascript:__doPostBack(&#39;cmdContinueApp&#39;,&#39;&#39;)">Yes, take me to my job application.</a>
+                        |
+                        <a id="cmdFindNewJob" href="javascript:__doPostBack(&#39;cmdFindNewJob&#39;,&#39;&#39;)">No, I do not want to apply for that job.</a>
+                    </p>
+                </div>
+                <div id="oCandidateAlert_JobClosed">
+                    <p>
+                        You have an incomplete application for
+                        <span id="lblJobName2"></span>
+                        that will not be submitted. Unfortunately, this position is no longer available. Please select a different job from those listed below.</p>
+                </div>
+            </div>
+            
+<style type="text/css">
+    .Count
+    {
+        background-color: #FF0000;
+        border: 2px solid #FFFFFF;
+        border-radius: 25px 25px 25px 25px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        color: #FFFFFF;
+        font-family: 'Helvetica Neue' ,Helvetica,Arial,sans-serif;
+        font-size: 9pt;
+        font-weight: bold;
+        margin: 0;
+        opacity: 0.9;
+        padding: 0 4px;
+        text-align: center;
+    }
+</style>
+<div id="oApplicantProfileTabs_divAlertSection" class="fullPanel" style="display:none;">
+    <span id="oApplicantProfileTabs_spAlerts" class="panelContent"></span>
+</div>
+<a name="aTopOfApplicantTabs"></a>
+<ul id="tabs" style="margin-bottom: 0;">
+    <li id="oApplicantProfileTabs_liHome" class="active accentCustom">
+        <a href="index.aspx" class="accentCustom" style="cursor: hand; cursor: pointer;">
+            <span id="oApplicantProfileTabs_spHome" class="tabInside accentCustom">Job Listings</span></a></li>
+    <li id="oApplicantProfileTabs_liProfile" class="altCustom" style="display:none;">
+        <a href="ViewProfile.aspx" class="altCustom" style="cursor: hand; cursor: pointer;">
+            <span id="oApplicantProfileTabs_spProfile" class="tabInside altCustom">Profile</span></a></li>
+    <li id="oApplicantProfileTabs_liStatus" class="altCustom" style="display:none;">
+        <a href="ViewJobHistory.aspx" class="altCustom" style="cursor: hand; cursor: pointer;">
+            <span id="oApplicantProfileTabs_spStatus" class="tabInside altCustom">Application Status</span></a></li>
+    <li id="oApplicantProfileTabs_liInterview" class="altCustom" style="display:none;">
+        <a href="ViewInterviewSchedule.aspx" class="altCustom" style="cursor: hand; cursor: pointer;">
+            <span id="oApplicantProfileTabs_spInterview" class="tabInside altCustom">Interviews</span>
+        </a>
+    </li>
+    <li id="oApplicantProfileTabs_liReference" class="altCustom" style="display:none;">
+        <a href="ViewReferences.aspx" class="altCustom" style="cursor: hand; cursor: pointer;">
+            <span id="oApplicantProfileTabs_spReference" class="tabInside altCustom">References</span></a></li>
+    <li id="oApplicantProfileTabs_liDocument" class="altCustom" style="display:none;">
+        <a href="ViewDocuments.aspx" class="altCustom" style="cursor: hand; cursor: pointer;">
+            <span id="oApplicantProfileTabs_spDocument" class="tabInside altCustom">Documents</span></a></li>
+    <li id="oApplicantProfileTabs_liFAQ" class="altCustom">
+        <a href="ViewFAQ.aspx" class="altCustom" style="cursor: hand; cursor: pointer;">
+            <span id="oApplicantProfileTabs_spFAQ" class="tabInside altCustom">Help</span></a></li>
+    <li id="oApplicantProfileTabs_liLogout" style="display:none;">
+        <a href="Logout.aspx" style="cursor: hand; cursor: pointer; text-decoration: underline;">
+            <span id="oApplicantProfileTabs_spLogout">Sign Out</span></a></li>
+</ul>
+<a name="aBottomOfApplicantTabs"></a>
+
+            <div class="subPanel altCustom" id="indexSubLinks">
+                <span class="panelContent">
+                    <h5 id="lblMenuTitle">Menu</h5>
+                    <a href="#" id="aSignUpJobAlert" class="jqModal altCustom">Sign Up for Job Alerts</a>
+                    <a href="#aJobListings" id="aViewJobListing">View Job Listings</a>
+                    
+                    <a href="PasswordRetrieve.aspx" id="aForgotPassword">I forgot my Username or Password</a>
+                </span>
+            </div>
+            <div class="mainPanel altCustom">
+                <span class="panelContent">
+                    <h5 id="hWelcome">
+                        
+                        <span id="spWelcome">Welcome</span>
+                    </h5>
+                    <span id="lblApplicationInstructions">To begin a new application, choose a job from the available listings below. After your information is complete, you will receive a confirmation number, and your information will be saved allowing you to return at any time to submit additional applications.<br/><br/>Please be sure and remember your username and password for use on future applications.</span>
+                </span>
+            </div>
+            <div class="row">
+            </div>
+            <a name="aJobListings"></a>
+            <div class="fullPanel">
+                <span class="panelContent">
+                    <h5 id="lblJobListings">Job Listings</h5>
+                    <div class="fullPanel mainCustom" style="width: auto;">
+                        <div style="padding: 3px 7px 0px 7px; height: 45px;">
+                            <label style="margin-bottom: 0;">
+                                <span id="lblSearch" style="width: auto; margin-bottom: 0;">Search</span>
+                                <input name="txtSearchJobList" type="text" id="txtSearchJobList" size="80" onkeyup="Search(this,&#39;Search&#39;,&#39;Index.aspx&#39;,&#39;JobList&#39;,0);return true;" /></label>
+                            <label style="margin-top: 0; padding-top: 0;padding-left: 58px;" class="fieldCaption searchLabel">
+                                <span id="lblSearchInst" style="font-size: 9px; width: 500px;">Type any part of the Job Title, Job Type, or Job Location to Search</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="divJobs" class="DynaListGeneric" style="clear: both;">
+                    <span id="JobList" class=""><table cellspacing="0" cellpadding="4" style="width:100%;"><tr class="thead jobListing"><td><a onclick="SortResultSet('Sort','Index.aspx','JobList','0','Title');return false" class="SearchHeader">Job Title</a></td><td><a onclick="SortResultSet('Sort','Index.aspx','JobList','0','ApplicationStartDate');return false" class="SearchHeaderDown">Posting Date</a></td><td><a onclick="SortResultSet('Sort','Index.aspx','JobList','0','Category');return false" class="SearchHeader">Type</a></td><td><a onclick="SortResultSet('Sort','Index.aspx','JobList','0','LocationName');return false" class="SearchHeader">Location</a></td><td style="width:60px;"></td></tr><tr id="JobList_1" class="rowB"><td><strong><a href="ViewJob.aspx?JobID=249">LTS-Instructional Assistant-Middle School</a></strong></td><td>04/30/2014</td><td>Support Staff</td><td>Middle School</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=249">Apply</a></td></tr><tr id="JobList_2" class="rowA"><td><strong><a href="ViewJob.aspx?JobID=248">Full Time Evening Custodian</a></strong></td><td>04/30/2014</td><td>Support Staff</td><td>Operations Department</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=248">Apply</a></td></tr><tr id="JobList_3" class="rowB"><td><strong><a href="ViewJob.aspx?JobID=247">Per-Diem Day Custodian</a></strong></td><td>04/23/2014</td><td>Substitute</td><td>Operations Department</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=247">Apply</a></td></tr><tr id="JobList_4" class="rowA"><td><strong><a href="ViewJob.aspx?JobID=240">Instructional Assistant ESY-2 week time frame</a></strong></td><td>04/02/2014</td><td>Support Staff</td><td>Upper Elementary School</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=240">Apply</a></td></tr><tr id="JobList_5" class="rowB"><td><strong><a href="ViewJob.aspx?JobID=236">Per-Diem Evening Custodian</a></strong></td><td>03/24/2014</td><td>Substitute</td><td>Operations Department</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=236">Apply</a></td></tr><tr id="JobList_6" class="rowA"><td><strong><a href="ViewJob.aspx?JobID=234">JV Girls Tennis Coach</a></strong></td><td>03/11/2014</td><td>Coaching</td><td>High School</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=234">Apply</a></td></tr><tr id="JobList_7" class="rowB"><td><strong><a href="ViewJob.aspx?JobID=230">Instructional Assistant for JV Track & Field 1:1</a></strong></td><td>03/04/2014</td><td>Coaching</td><td>Middle School</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=230">Apply</a></td></tr><tr id="JobList_8" class="rowA"><td><strong><a href="ViewJob.aspx?JobID=239">Homebound Instructor - HS 20th Century History</a></strong></td><td>01/28/2014</td><td>Certified</td><td>To Be Determined</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=239">Apply</a></td></tr><tr id="JobList_9" class="rowB"><td><strong><a href="ViewJob.aspx?JobID=210">Varsity Golf Coach</a></strong></td><td>01/14/2014</td><td>Coaching</td><td>High School</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=210">Apply</a></td></tr><tr id="JobList_10" class="rowA"><td><strong><a href="ViewJob.aspx?JobID=196">Per-Diem (Substitute) Cafeteria Worker/Cashier</a></strong></td><td>11/11/2013</td><td>Support Staff</td><td>District Wide</td><td style="text-align:center;width:50px"><a class="button" style="background-color:#2D2D2D;" href="ViewJob.aspx?JobID=196">Apply</a></td></tr></table><div id="NavigateDynaList" class="navigate"><span style="float:right;margin-right:10px;"><img src="/hire/images/blank_24.gif&#xD;&#xA;                                    "></img> <img src="/hire/images/blank_24.gif&#xD;&#xA;                                    "></img></span><span style="float:left;margin-left:10px;"><img src="/hire/images/blank_24.gif&#xD;&#xA;                                    "></img> <img src="/hire/images/blank_24.gif&#xD;&#xA;                                    "></img></span><span class="PageIndexNumberCurrent">1</span></div></span></div>
+                </span>
+            </div>
+            <a name="aCareerDays"></a>
+            <div class="fullPanel">
+                <span class="panelContent">
+                    <div id="divCareerDays" class="DynaListGeneric">
+                    <span id="CareerDay" class=""></span></div>
+                </span>
+            </div>
+            
+ <script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.6/zenbox.js"></script>
+<script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.6/zenbox.js"></script>
+
+<style type="text/css" media="screen, projection">
+
+  @import url(//assets.zendesk.com/external/zenbox/v2.6/zenbox.css);
+   #zenbox_tab img 
+                {
+                display:none;    
+                }
+</style>
+
+<script type="text/javascript">
+   
+        if (typeof (Zenbox) !== "undefined") {
+
+            Zenbox.init({
+
+                dropboxID: "20250868",
+
+                url: "https://netchemia.zendesk.com",
+
+                tabTooltip: "Support",
+
+                tabImageURL: "https://cloud.talentedk12.com/hire/images/empty.gif",
+
+                tabColor: "black",
+
+                tabPosition: "Left",
+
+                tabHide: "true",
+
+            });
+
+        }
+
+
+</script>
+<div class="footer" style="clear: both;">
+    <div id="ncInfo">
+        <p style="margin-top: 0px;">
+            <a href="/hire/viewFAQ.aspx" id="ApplicantFooter1_aHelp">Help</a>
+        </p>
+       <!-- <p style="margin-top: 0px;">
+        
+            <a id="a1" href="http://netchemia.zendesk.com/account/dropboxes/20250868" onclick="script: Zenbox.show(); return false;">Need additional support? Click here</a>
+        
+
+
+        </p>-->
+        <p style="margin-top: 20px;">
+            Powered by <a href="http://www.netchemia.com">
+                TalentEd Recruit & Hire
+            </a>
+            <br />
+            Copyright 2005-2014 Netchemia, LLC.
+        </p>
+    </div>
+    <div style="float: left;">
+        <p style="margin-top: 0px;">
+            <strong>
+                </strong><br />
+            <span id="ApplicantFooter1_lblDistrictAddress"></span>
+        </p>
+    </div>
+    <div style="clear: both;">
+    </div>
+</div>
+
+
+            </form>
+        </div>
+    </div>
+<script type="text/javascript"> if (!NREUMQ.f) {NREUMQ.f=function() {NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script"); e.type="text/javascript"; e.src=(("http:"===document.location.protocol)?"http:":"https:") + "//" + "js-agent.newrelic.com/nr-100.js"; document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-6.newrelic.com","72f53cf60c","674413","MVEHZ0BUX0sDABULWQgbJGBiGllREAZOC1gCUR0dU0ZBQA==",0,31,new Date().getTime(),"D24865E0D582A445","","","",""]);</script></body>
+</html>

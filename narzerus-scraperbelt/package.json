@@ -1,0 +1,25 @@
+{
+  "name": "scraperbelt",
+  "description": "Utility belt for web scraping.",
+  "version": "0.2.3",
+  "dependencies": {
+    "jquery": "1.8.3",
+    "esprima": "1.0.4",
+    "validator": "1.5.1"
+  },
+  "engines": {
+    "node": "0.10.5",
+    "npm": "1.2.x"
+  },
+  "author": {
+    "name": "Rafael Vidaurre",
+    "email": "narzerus@gmail.com"
+  },
+  "homepage": "https://github.com/Narzerus/scraperbelt",
+  "keywords": ["scraping", "tool", "utility", "simple"],
+  "bugs": {
+    "url": "https://github.com/Narzerus/scraperbelt/issues"
+  },
+  "license": "MIT",
+  "main": "scraperbelt.js"
+}

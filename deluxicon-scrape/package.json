@@ -1,0 +1,12 @@
+{
+  "name"         : "scrape",
+  "version"      : "0.0.1",
+  "description"  : "scrape",
+  "main"         : "server.js",
+  "author"       : "neotype",
+  "dependencies" : {
+    "express"    : "latest",
+    "request"    : "latest",
+    "cheerio"    : "latest"
+  }
+}
